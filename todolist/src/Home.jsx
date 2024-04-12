@@ -16,7 +16,7 @@ function Home() {
 
 
   const fetchTasksCount = () => {
-    axios.get(https://to-do-for-e-paper.vercel.app/get')
+    axios.get('https://to-do-for-e-paper.vercel.app/get')
       .then(response => {
         // Assuming the server returns an array of tasks
         setCnt(response.data.length);
