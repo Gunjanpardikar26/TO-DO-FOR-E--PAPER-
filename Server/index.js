@@ -79,9 +79,6 @@ app.put('/replace/:id', (req, res) => {
         })
         .catch(err => res.status(500).json({ error: err.message }));
 });
-
-//const PORT = process.env.PORT || 3000; // Default to port 3000 if not specified by the environment
-
-//app.listen(3001, () => {
-  //  console.log('Server is running on port');
-});//
+app.listen(3001, () => {
+   console.log('Server is running on port');
+});
