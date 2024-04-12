@@ -80,13 +80,8 @@ app.put('/replace/:id', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
-<<<<<<< HEAD
-app.listen("https://to-do-for-e-paper.vercel.app", () => {
-    console.log("Server is running");
-=======
 //const PORT = process.env.PORT || 3000; // Default to port 3000 if not specified by the environment
 
 app.listen(3001, () => {
-    console.log(`Server is running on port ${PORT}`);
->>>>>>> c0baedc60165e8bf65482a9d4bf971c304a80c54
+    console.log('Server is running on port');
 });
