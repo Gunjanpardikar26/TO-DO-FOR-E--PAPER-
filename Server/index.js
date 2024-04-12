@@ -5,7 +5,7 @@ const TodoModel = require('./Models/Todo')
 
 const app = express()
 app.use(cors({
-  origin: ["https://to-do-for-e-paper-gg4f-frontend.vercel.app/"],
+  origin: ["https://to-do-for-e-paper-gg4f-frontend.vercel.app"],
   methods: ["POST", "GET"],
   credentials: true
 }));
