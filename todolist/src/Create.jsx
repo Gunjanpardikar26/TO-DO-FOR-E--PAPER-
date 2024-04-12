@@ -16,8 +16,8 @@ function Create({onTaskAdded,fetchTaskCount, count}) {
           .then(response => {
             const firstTask = response.data;
             if (firstTask && firstTask.done) {
-              axios.put(`https://to-do-for-e-paper.vercel.app
-/replace/${firstTask._id}`, { task: task })
+              axios.put('https://to-do-for-e-paper.vercel.app
+/replace/${firstTask._id}', { task: task })
                 .then(() => {
                   setTask('');
                   console.log('Task replaced successfully.');
