@@ -16,7 +16,7 @@ function Home() {
 
 
   const fetchTasksCount = () => {
-    axios.get('http://localhost:3001/get')
+    axios.get(https://to-do-for-e-paper.vercel.app/get')
       .then(response => {
         // Assuming the server returns an array of tasks
         setCnt(response.data.length);
@@ -26,7 +26,7 @@ function Home() {
 
   const fetchTodos = () => {
       fetchTasksCount();
-      axios.get('http://localhost:3001/get')
+      axios.get('https://to-do-for-e-paper.vercel.app/get')
           .then(result => setTodos(result.data))
           .catch(err => console.log(err));
   };
@@ -36,7 +36,7 @@ function Home() {
     const handleEdit = (id, currentDoneState) => {
       const newDoneState = !currentDoneState; // Toggle the current state
       fetchTasksCount();
-      axios.put('http://localhost:3001/update/' + id, { done: newDoneState })
+      axios.put('https://to-do-for-e-paper.vercel.app/update/' + id, { done: newDoneState })
           .then(result => {
               setTodos(prevTodos => prevTodos.map(todo => todo._id === id ? { ...todo, done: newDoneState } : todo));
               fetchTasksCount();
@@ -45,7 +45,7 @@ function Home() {
   }
 
     const handleDelete = (id) => {
-      axios.delete('http://localhost:3001/delete/'+id)
+      axios.delete('https://to-do-for-e-paper.vercel.app/delete/'+id)
       .then(result => {
         setTodos(prevTodos => prevTodos.filter(todo => todo._id !== id));
         fetchTasksCount();

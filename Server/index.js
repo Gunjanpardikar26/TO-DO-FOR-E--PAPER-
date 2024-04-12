@@ -4,17 +4,18 @@ const cors = require('cors')
 const TodoModel = require('./Models/Todo')
 
 const app = express()
-app.use(cors(
-    {
-        origin:["https://deploy.mern.lwhq.vercel.app"],
-        methods:["POST","GET"],
-        credentials:true
-    }
-))
+app.use(cors({
+  origin: ["https://to-do-for-e-paper-gg4f-frontend.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
 app.use(express.json())
 
 mongoose.connect('mongodb://127.0.0.1:27017/test')
-
+app.get("/", (req,res) => {
+    res.json("hello");
+});
 app.get('/get', (req,res ) =>{
     TodoModel.find()
     .then(result =>res.json(result))
@@ -79,6 +80,13 @@ app.put('/replace/:id', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
+<<<<<<< HEAD
 app.listen("https://to-do-for-e-paper.vercel.app", () => {
     console.log("Server is running");
+=======
+//const PORT = process.env.PORT || 3000; // Default to port 3000 if not specified by the environment
+
+app.listen(3001, () => {
+    console.log(`Server is running on port ${PORT}`);
+>>>>>>> c0baedc60165e8bf65482a9d4bf971c304a80c54
 });
