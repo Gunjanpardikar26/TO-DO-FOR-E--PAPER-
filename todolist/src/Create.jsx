@@ -11,11 +11,13 @@ function Create({onTaskAdded,fetchTaskCount, count}) {
     const handleAdd = () => {
       fetchTaskCount();
       if (count >= 5) {
-        axios.get('http://localhost:3001/tasks/first')
+        axios.get('to-do-for-e-paper.vercel.app
+/tasks/first')
           .then(response => {
             const firstTask = response.data;
             if (firstTask && firstTask.done) {
-              axios.put(`http://localhost:3001/replace/${firstTask._id}`, { task: task })
+              axios.put(`to-do-for-e-paper.vercel.app
+/replace/${firstTask._id}`, { task: task })
                 .then(() => {
                   setTask('');
                   console.log('Task replaced successfully.');
@@ -31,7 +33,8 @@ function Create({onTaskAdded,fetchTaskCount, count}) {
           })
           .catch(err => console.log("error while running first api"+err));
       } else {
-        axios.post('http://localhost:3001/add', { task: task })
+        axios.post('to-do-for-e-paper.vercel.app
+/add', { task: task })
           .then(() => {
             setTask('');
             fetchTaskCount();
