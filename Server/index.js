@@ -4,13 +4,11 @@ const cors = require('cors')
 const TodoModel = require('./Models/Todo')
 
 const app = express()
-app.use(cors(
-    {
-        origin:["https://to-do-for-e-paper-gg4f-frontend.vercel.app/"],
-        methods:["POST","GET"],
-        credentials:true
-    }
-))
+app.use(cors({
+  origin: "https://to-do-for-e-paper-gg4f-frontend-72ifdj8oy.vercel.app",
+  methods: ["POST", "GET"],
+  credentials: true
+}));
 app.use(express.json())
 
 mongoose.connect('mongodb://127.0.0.1:27017/test')
