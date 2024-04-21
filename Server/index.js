@@ -12,7 +12,13 @@ app.use(cors({
 }));
 app.use(express.json())
 
-mongoose.connect('mongodb://127.0.0.1:27017/test')
+//mongoose.connect('mongodb://127.0.0.1:27017/test')
+
+const MONGODB_URI  = 'mongodb+srv://root:stxaviers@cluster0.puofgwo.mongodb.net/';
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
+
 app.get("/", (req,res) => {
     res.json("hello");
 });
@@ -79,6 +85,11 @@ app.put('/replace/:id', (req, res) => {
         })
         .catch(err => res.status(500).json({ error: err.message }));
 });
-app.listen(3001, () => {
-   console.log('Server is running on port');
+// app.listen(3001, () => {
+//    console.log('Server is running on port');
+// });
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
