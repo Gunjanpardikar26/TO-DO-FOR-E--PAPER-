@@ -22,11 +22,22 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 app.get("/", (req,res) => {
     res.json("hello");
 });
-app.get('/get', (req,res ) =>{
-    TodoModel.find()
-    .then(result =>res.json(result))
-    .catch(err => res.status(500).json({error: err.message}));
+// app.get('/get', (req,res ) =>{
+//     TodoModel.find()
+//     .then(result =>res.json(result))
+//     .catch(err => res.status(500).json({error: err.message}));
+// });
+
+app.get('/get', async (req, res) => {
+    try {
+        const result = await TodoModel.find();
+        res.json(result);
+    } catch (err) {
+        console.error('Error fetching todos:', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 });
+
 
 app.put('/update/:id', (req,res) => {
     const {id} = req.params;
