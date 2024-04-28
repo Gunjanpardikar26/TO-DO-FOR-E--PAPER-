@@ -15,7 +15,7 @@ app.use(express.json())
 //mongoose.connect('mongodb://127.0.0.1:27017/test')
 
 // const MONGODB_URI  = 'mongodb+srv://root:stxaviers@cluster0.puofgwo.mongodb.net/';
-const MONGODB_URI = 'mongodb+srv://root:stxaviers@cluster0.puofgwo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_URI = 'mongodb+srv://root:stxaviers@cluster0.puofgwo.mongodb.net/';
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
